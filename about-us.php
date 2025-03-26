@@ -28,25 +28,7 @@
             <h1>&nbsp;&nbsp;&nbsp;about us</h1>
         </div>
     </div>
-    <!-- <div class="chef">
-        <div class="box-container">
-            <div class="box">
-                <div class="heading">
-                    <span>Alex Doe</span>
-                    <h1>Masterchef</h1>
-                    <img src="image/separator-img.png" alt="">
-                </div>
-                <p>Maria is a Roman-born pastry chef who spent 15 years in his city Rome perfecting his craft and exceptional creations. Vestibulum rhoncus ornare tincidunt. Etiam pretium metus sit amet est aliquet vulputate. Fusce et cursus ligula. Sed accumsan dictum porta. Aliquam rutrum ullamcorper velit hendrerit convallis.</p>
-                <div class="flex-btn">
-                    <a href="" class="btn">explore our menu</a>
-                    <a href="" class="btn">visit our shop</a>
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/ceaf.png" alt="" class="img">
-            </div>
-        </div>
-    </div> -->
+
     <div class="story">
         <div class="heading">
             <h1>Our Story</h1>
@@ -96,7 +78,15 @@
                 <div class="content">
                     <img src="image/shape-19.png" alt="" class="shap">
                     <h2>John Gabriel Perez</h2>
-                    <p>Project Manager</p>
+                    <p>UI/UX Designer</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image/lens.jpg" alt="" class="img">
+                <div class="content">
+                    <img src="image/shape-19.png" alt="" class="shap">
+                    <h2>Isaiah Talens</h2>
+                    <p>Ui/Ux Designer</p>
                 </div>
             </div>
             <div class="box">
@@ -104,7 +94,15 @@
                 <div class="content">
                     <img src="image/shape-19.png" alt="" class="shap">
                     <h2>Jessica Hanschke</h2>
-                    <p>Designer</p>
+                    <p>Documentation</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="image/cabs.jpg" alt="" class="img">
+                <div class="content">
+                    <img src="image/shape-19.png" alt="" class="shap">
+                    <h2>Gian Santos</h2>
+                    <p>Documentation</p>
                 </div>
             </div>
             <div class="box">
@@ -112,17 +110,19 @@
                 <div class="content">
                     <img src="image/shape-19.png" alt="" class="shap">
                     <h2>Ragie Almachar</h2>
-                    <p>Developer</p>
+                    <p>Back End Developer</p>
                 </div>
             </div>
             <div class="box">
-                <img src="image/cabs.jpg" alt="" class="img">
+                <img src="image/jimmy.jpg" alt="" class="img">
                 <div class="content">
                     <img src="image/shape-19.png" alt="" class="shap">
-                    <h2>Lance Cabe</h2>
-                    <p>Documentation</p>
+                    <h2>Jimwell Manalo</h2>
+                    <p>Front End Developer</p>
                 </div>
             </div>
+    
+   
         </div>
     </div>
     <!-- mission -->
@@ -160,7 +160,7 @@
                     <div class="user-text">
                         <p>Scoop City exceeded all my expectations with their incredible flavors and friendly service. The Scoopy Supreme was an absolute delight, bursting with rich chocolate brownie and caramel swirls. It's now my favorite spot for indulging in creamy, delicious treats.</p>
                         <h2>Benedict</h2>
-                        <p>Student Councilor</p>
+                        <p>Student</p>
                     </div>
                     <div class="user-img">
                         <img src="image/JBS.jpg" alt="avatar">
@@ -170,7 +170,7 @@
                 <div class="slide-col">
                     <div class="user-text">
                         <p>Scoop City is a hidden gem! Their innovative flavors like Mango Tango and Matcha Madness are a must-try for any ice cream lover. The cozy atmosphere and friendly staff make every visit a delight.</p>
-                        <h2>Isaiah</h2>
+                        <h2>Phoenix</h2>
                         <p>Student</p>
                     </div>
                     <div class="user-img">
@@ -182,7 +182,7 @@
                     <div class="user-text">
                         <p>As a lactose-intolerant, finding Scoop City was a dream come true! Their dairy-free options are some of the best I've ever tasted, especially the Coconut Bliss and Almond Joy flavors. I'll definitely be coming back for more scoops of dairy-free happiness!</p>
                         <h2>Carl</h2>
-                        <p>Student Councilor</p>
+                        <p>Student</p>
                     </div>
                     <div class="user-img">
                         <img src="image/Carl.jpg" alt="avatar">
@@ -211,55 +211,7 @@
         </div>
     </div>
     </div>
-    <!-- -----------------testimonial----------------- -->
-    <!-- <div class="mission">
-        <div class="box-container">
-            <div class="box">
-                <div class="heading">
-                    <h1>our mission</h1>
-                    <img src="image/separator-img.png" alt="">
-                </div>
-                <div class="detail">
-                    <div class="img-box">
-                        <img src="image/mission.webp">
-                    </div>
-                    <div>
-                        <h2>Mexican Chocolate</h2>
-                        <p>A childhood favorite made larger than life, our celebration sheet cake features delicious homemade sprinkles.</p>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="img-box">
-                        <img src="image/mission1.webp">
-                    </div>
-                    <div>
-                        <h2>Vanila With Honey</h2>
-                        <p>Layers of shaped marshmallow candies — bunnies, chicks, and simple flowers — make a memorable gift in a beribboned box</p>
-                    </div>
-                </div>
-               <div class="detail">
-                    <div class="img-box">
-                        <img src="image/mission0.jpg">
-                    </div>
-                    <div>
-                        <h2>Peppermint Chip</h2>
-                        <p>Layers of shaped marshmallow candies — bunnies, chicks, and simple flowers — make a memorable gift in a beribboned box</p>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="img-box">
-                        <img src="image/mission2.webp">
-                    </div>
-                    <div>
-                        <h2>Raspberry Sorbet</h2>
-                        <p>Layers of shaped marshmallow candies — bunnies, chicks, and simple flowers — make a memorable gift in a beribboned box</p>
-                    </div>
-                </div> -->
-
-            </div>
-            <!-- <div class="box">
-                <img src="image/form.png" class="img">
-            </div> -->
+   
         </div>
     </div>
     <?php include 'components/footer.php'; ?>
