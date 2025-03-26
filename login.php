@@ -21,6 +21,13 @@ if(isset($_POST['submit'])){
    
    if($select_user->rowCount() > 0){
      setcookie('user_id', $row['id'], time() + 60*60*24*30, '/');
+
+     $user_id = $row['id'];
+     $action = 'login';
+  
+     $log_user = $conn->prepare("INSERT INTO `user_logs` (user_id, action) VALUES (?, ?)");
+     $log_user->execute([$user_id, $action]);
+
      header('location:home.php');
    }else{
       $message[] = 'incorrect email or password!';

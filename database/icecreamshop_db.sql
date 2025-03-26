@@ -173,8 +173,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
--- INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`) VALUES
--- ('TAl1Ck3GFt1Bilg2sS64', 'john doe', 'johndoe@gmail.com', 'a51dda7c7ff50b61eaea0444371f4a6a9301e501', '8i7PsJfaXm8ARBWbBeKb.jpg');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`) VALUES
+('TAl1Ck3GFt1Bilg2sS64', 'john doe', 'johndoe@gmail.com', 'a51dda7c7ff50b61eaea0444371f4a6a9301e501', '8i7PsJfaXm8ARBWbBeKb.jpg');
 
 -- --------------------------------------------------------
 

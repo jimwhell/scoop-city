@@ -52,6 +52,16 @@
 						$number_of_post = $select_post->rowCount();
 					?>
 					<h3><?= $number_of_post; ?></h3>
+					<p></p>
+					<a href="user_analytics.php" class="btn">User analytics</a>
+				</div>
+				<div class="box">
+					<?php 
+						$select_post = $conn->prepare("SELECT * FROM `products` WHERE seller_id=?");
+						$select_post->execute([$seller_id]);
+						$number_of_post = $select_post->rowCount();
+					?>
+					<h3><?= $number_of_post; ?></h3>
 					<p>products added</p>
 					<a href="add_product.php" class="btn">add new products</a>
 				</div>
