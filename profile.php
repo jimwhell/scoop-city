@@ -1,6 +1,5 @@
 <?php
-
-   include 'components/connect.php';
+	require_once './components/log_transaction.php';
 
    if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
@@ -17,7 +16,8 @@
    $select_comments->execute([$user_id]);
    $total_comments = $select_comments->rowCount();
 
-
+   $page_visited = $_SERVER['REQUEST_URI'];
+	logActivity($user_id, 'READ', $page_visited, 'User viewed profile page.');
 
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-
+	require_once './components/log_transaction.php';
 include 'components/connect.php';
 
 if(isset($_COOKIE['user_id'])){
@@ -8,6 +8,8 @@ if(isset($_COOKIE['user_id'])){
    $user_id = '';
    header('location:login.php');
 }
+
+$page_visited = $_SERVER['REQUEST_URI'];
 
 if(isset($_POST['submit'])){
 
@@ -27,6 +29,8 @@ if(isset($_POST['submit'])){
    if(!empty($name)){
       $update_name = $conn->prepare("UPDATE `users` SET name = ? WHERE id = ?");
       $update_name->execute([$name, $user_id]);
+      logActivity($user_id, 'UPDATE', $page_visited, 'User updated account name.');
+
       $message[] = 'username updated successfully!';
    }
 
@@ -38,6 +42,7 @@ if(isset($_POST['submit'])){
       }else{
          $update_email = $conn->prepare("UPDATE `users` SET email = ? WHERE id = ?");
          $update_email->execute([$email, $user_id]);
+         logActivity($user_id, 'UPDATE', $page_visited, 'User updated their email.');
          $message[] = 'email updated successfully!';
       }
    }
@@ -60,6 +65,7 @@ if(isset($_POST['submit'])){
          if($prev_image != '' AND $prev_image != $rename){
             unlink('uploaded_files/'.$prev_image);
          }
+         logActivity($user_id, 'UPDATE', $page_visited, 'User updated profile picture.');
          $message[] = 'image updated successfully!';
       }
    }
@@ -81,6 +87,7 @@ if(isset($_POST['submit'])){
          if($new_pass != $empty_pass){
             $update_pass = $conn->prepare("UPDATE `users` SET password = ? WHERE id = ?");
             $update_pass->execute([$cpass, $user_id]);
+            logActivity($user_id, 'UPDATE', $page_visited, 'User updated their password.');
             $message[] = 'password updated successfully!';
          }else{
             $message[] = 'please enter a new password!';
