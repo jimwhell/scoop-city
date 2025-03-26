@@ -51,9 +51,9 @@
 						$select_post->execute([$seller_id]);
 						$number_of_post = $select_post->rowCount();
 					?>
-					<h3><?= $number_of_post; ?></h3>
+					<h3>Site visitors analytics</h3>
 					<p></p>
-					<a href="user_analytics.php" class="btn">User analytics</a>
+					<a href="visitor_analytics.php" class="btn">View</a>
 				</div>
 				<div class="box">
 					<?php 

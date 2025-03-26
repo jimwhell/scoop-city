@@ -2,6 +2,8 @@
 	include 'components/connect.php';
 	include 'log_analytics.php';
 
+	
+
 	require_once './components/log_transaction.php';
 	if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
