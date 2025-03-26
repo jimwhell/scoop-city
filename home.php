@@ -9,6 +9,8 @@
       
    }
 
+   include 'log_analytics.php';
+
 
 
 ?>

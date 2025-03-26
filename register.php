@@ -40,12 +40,24 @@ if(isset($_POST['submit'])){
          $insert_user = $conn->prepare("INSERT INTO `users`(id, name, email, password, image) VALUES(?,?,?,?,?)");
          $insert_user->execute([$id, $name, $email, $cpass, $rename]);
          move_uploaded_file($image_tmp_name, $image_folder);
+
+         
+
+
          
          $verify_user = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ? LIMIT 1");
          $verify_user->execute([$email, $pass]);
          $row = $verify_user->fetch(PDO::FETCH_ASSOC);
          
          if($verify_user->rowCount() > 0){
+
+            //log login
+            $user_id = $row['id'];
+            $action = 'login';
+
+            $log_user = $conn->prepare("INSERT INTO `user_logs` (user_id, action) VALUES (?, ?)");
+            $log_user->execute([$user_id, $action]);
+
             setcookie('user_id', $row['id'], time() + 60*60*24*30, '/');
             header('location:home.php');
          }

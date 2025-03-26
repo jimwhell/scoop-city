@@ -1,11 +1,12 @@
 <div class="box-container">
 		<?php 
+
 			$select_products = $conn->prepare("SELECT * FROM `products` WHERE status = ?");
 			$select_products->execute(['active']);
 			if ($select_products->rowCount() > 0) {
 				while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
 
-
+			
 		?>
 		<form action="" method="post" class="box <?php if($fetch_products['stock'] == 0){echo 'disabled';}; ?>">
 			<img src="uploaded_files/<?= $fetch_products['image']; ?>" class="image">

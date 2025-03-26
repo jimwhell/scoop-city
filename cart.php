@@ -1,5 +1,5 @@
-<?php 
-	include 'components/connect.php';
+<?php
+	require_once './components/log_transaction.php';
 	error_reporting(0);
 	if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
@@ -7,6 +7,11 @@
       $user_id = '';
       header('location:login.php');
    }
+
+   $page_visited = $_SERVER['REQUEST_URI'];
+   logActivity($user_id, 'READ', $page_visited, 'User viewed their cart.');
+
+
 
 	//update cart product quantity
 	if (isset($_POST['update_cart'])) {
@@ -17,7 +22,7 @@
 
 		$update_qty = $conn->prepare("UPDATE `cart` SET qty = ? WHERE id=?");
 		$update_qty->execute([$qty, $cart_id]);
-
+		logActivity($user_id, 'UPDATE', $page_visited, 'User updated their cart.');
 		$success_msg[] = 'cart quantity updated successfully!';
 	}
 	
@@ -32,6 +37,7 @@
 		if ($verify_delete_item->rowCount() > 0) {
 			$delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE id = ?");
 			$delete_cart_id->execute([$cart_id]);
+		logActivity($user_id, 'DELETE', $page_visited, 'User deleted item from cart.');
 
 			$success_msg[] = 'cart item delete successfully!';
 		}else{
