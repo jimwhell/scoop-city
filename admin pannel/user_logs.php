@@ -30,7 +30,6 @@ try {
     
     $logs = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 } catch(PDOException $e) {     
-    // Log the error and show a user-friendly message     
     error_log($e->getMessage());     
     die("Error fetching logs: " . $e->getMessage()); 
 } 
