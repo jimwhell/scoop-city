@@ -1,12 +1,16 @@
 <?php 
 	include 'components/connect.php';
+	include 'log_analytics.php';
+
+	require_once './components/log_transaction.php';
 	if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
    }else{
       $user_id = '';
       
    }
-
+   $page_visited = $_SERVER['REQUEST_URI'];
+   logActivity($user_id, 'READ', $page_visited, 'User viewed contact page');
 	//send message
 
 	if (isset($_POST['send_message'])) {
@@ -32,6 +36,8 @@
 			}else{
 				$insert_message = $conn->prepare("INSERT INTO `message`(id,user_id,name,email,subject,message) VALUES(?,?,?,?,?,?)");
 				$insert_message->execute([$id, $user_id, $name, $email, $subject, $message]);
+   				logActivity($user_id, 'CREATE', $page_visited, 'User submitted a message');
+
 				$success_msg[] = 'comment inserted successfully';
 
 			}

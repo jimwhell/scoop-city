@@ -1,5 +1,6 @@
 <?php 
 	include 'components/connect.php';
+	require_once './components/log_transaction.php';
 	
 	if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
@@ -13,7 +14,9 @@
 	include 'components/add_wishlist.php';
 	include 'components/add_cart.php';
 
-	
+	$page_visited = $_SERVER['REQUEST_URI'];
+	logActivity($user_id, 'READ', $page_visited, 'User viewed product detail page.');
+
 
 ?>
 <!DOCTYPE html>

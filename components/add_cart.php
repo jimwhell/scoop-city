@@ -1,5 +1,7 @@
 <?php 
 	error_reporting(0);
+	require_once './components/log_transaction.php';
+
 	//adding products in cart
 	if (isset($_POST['add_to_cart'])) {
 		if ($user_id != '') {
@@ -26,6 +28,8 @@
 
 				$insert_cart = $conn->prepare("INSERT INTO `cart`(id, user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
 				$insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
+				$page_visited = $_SERVER['REQUEST_URI'];
+				logActivity($user_id, 'CREATE', '/scoop-city/menu.php', 'User added an item to cart.');
 				$success_msg[] = 'product added to cart successfully';
 			}
 		}else{

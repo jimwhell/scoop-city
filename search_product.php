@@ -1,6 +1,8 @@
 <?php
 
 include 'components/connect.php';
+require_once './components/log_transaction.php';
+
 
    if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
@@ -9,6 +11,8 @@ include 'components/connect.php';
    }
    include 'components/add_wishlist.php';
    include 'components/add_cart.php';
+
+   $page_visited = $_SERVER['REQUEST_URI'];
 
 ?>
 
@@ -54,6 +58,7 @@ include 'components/connect.php';
          $search_products = $_POST['search_product'];
          $select_products = $conn->prepare("SELECT * FROM `products` WHERE name LIKE '%{$search_products}%' AND status = ?");
          $select_products->execute(['active']);
+         logActivity($user_id, 'READ', $page_visited, 'User searched for a product.');
          if($select_products->rowCount() > 0){
             while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){
                $product_id = $fetch_products['id'];

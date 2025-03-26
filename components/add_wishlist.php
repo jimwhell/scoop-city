@@ -1,10 +1,11 @@
 <?php 
 	//adding products in wishlist
-
+	require_once './components/log_transaction.php';
 	if (isset($_POST['add_to_wishlist'])) {
 		if ($user_id != '') {
 		$id = unique_id();
 		$product_id = $_POST['product_id'];
+		$page_visited = $_SERVER['REQUEST_URI'];
 
 		$varify_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ? AND product_id = ?");
 		$varify_wishlist->execute([$user_id, $product_id]);
@@ -23,6 +24,7 @@
 
 			$insert_wishlist = $conn->prepare("INSERT INTO `wishlist`(id, user_id,product_id,price) VALUES(?,?,?,?)");
 			$insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']]);
+			logActivity($user_id, 'CREATE', $page_visited, 'User added product to wishlist.');
 			$success_msg[] = 'product added to wishlist successfully';
 		}
 	}else{
