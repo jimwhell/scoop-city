@@ -136,7 +136,16 @@
 					<p>total orders</p>
 					<a href="admin_order.php" class="btn">all orders</a>
 				</div>
-				
+				<div class="box">
+					<?php 
+						$select_total_order = $conn->prepare("SELECT * FROM `orders` WHERE seller_id=?");
+						$select_total_order->execute([$seller_id]);
+						$total_total_order = $select_total_order->rowCount();
+					?>
+					<h3><?= $total_total_order; ?></h3>
+					<p>User Logs</p>
+					<a href="admin_order.php" class="btn">View Logs</a>
+				</div>
 			</div>
 		</section>
 	</div>

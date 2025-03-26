@@ -46,6 +46,7 @@
 				<li><a href="add_product.php"><i class="bx bxs-shopping-bags"></i>add products</a></li>
 				<li><a href="view_posts.php"><i class="bx bxs-food-menu"></i>view products</a></li>
 				<li><a href="user_accounts.php"><i class="bx bxs-user-detail"></i>accounts</a></li>
+				<li><a href="userLogs.php"><i class="bx bxs-user-detail"></i>User Logs</a></li>
 				<li><a href="../components/admin_logout.php" onclick="return confirm('logout from this website')"><i class="bx bx-log-out"></i>logout</a></li>
 			</ul>
 		</div>
