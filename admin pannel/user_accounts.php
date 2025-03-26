@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- box icon cdn link  -->
    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+   
 	<title>Admin - user account page</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 		<?php include '../components/admin_header.php'; ?>
 		<section class="accounts">
 			<div class="heading">
-				<h1>registered user's</h1>
+				<h1>registered users</h1>
 				<img src="../image/separator-img.png" width="100">
 			</div>
 			<div class="box-container">
@@ -37,10 +38,11 @@
 
 				?>
 				<div class="box">
-					<img src="../uploaded_files/<?= $fetch_users['image']; ?>">
-					<p>user id : <span><?= $user_id ?></span></p>
-					<p>user name : <span><?= $fetch_users['name']; ?></span></p>
-					<p>user email : <span><?= $fetch_users['email']; ?></span></p>
+    				<img src="../uploaded_files/<?= $fetch_users['image']; ?>">
+    				<p>user id : <span><?= $user_id ?></span></p>
+    				<p>user name : <span><?= $fetch_users['name']; ?></span></p>
+    				<p>user email : <span><?= $fetch_users['email']; ?></span></p>
+    				<a href="transaction_logs.php?id=<?= $user_id ?>" class="btn">View Transaction Logs</a>
 				</div>
 				<?php 
 						}

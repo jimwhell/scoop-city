@@ -11,7 +11,7 @@
       
    }
 
-   include 'log_analytics.php';
+   include './components/log_analytics.php'; //script to capture user data (e.g os, device, ip address)
 
    $page_visited = $_SERVER['REQUEST_URI'];
 	logActivity($user_id, 'READ', $page_visited, 'User viewed home page.');

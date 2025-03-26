@@ -39,9 +39,6 @@ if(!empty($filter_conditions)) {
 $select_analytics = $conn->prepare($filter_query);
 $select_analytics->execute($filter_params);
 ?>
-<style>
-	<?php include '../css/admin_style.css'; ?>
-</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,6 +92,10 @@ $select_analytics->execute($filter_params);
             background-color: #f2f2f2;
             font-weight: bold;
         }        
+
+        .heading {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -118,7 +119,7 @@ $select_analytics->execute($filter_params);
 
                 <select name="operating_system">
                     <option value="">All OS</option>
-                    <option value="Windows 10">Windows 10</option>
+                    <option value="Windows">Windows</option>
                     <option value="MacOS">MacOS</option>
                     <option value="Linux">Linux</option>
                 </select>
@@ -135,6 +136,7 @@ $select_analytics->execute($filter_params);
                     <option value="United States">United States</option>
                     <option value="Canada">Canada</option>
                     <option value="UK">UK</option>
+                    <option value="Philippines">Philippines</option>
                 </select>
 
                 <button type="submit" class="btn">Apply Filters</button>
