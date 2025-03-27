@@ -26,9 +26,8 @@
             </div>
         </div>
         <div class="bottom">
-            <p>Copyright © 2023 code with selena. All Rights Reserved</p>
-            <div class="desktop">
+            <!-- <div class="desktop">
              <a href="admin pannel/login.php">become a seller</a>
-            </div>
+            </div> -->
         </div>
     </footer>
