@@ -44,6 +44,7 @@
     				<p>user email : <span><?= $fetch_users['email']; ?></span></p>
     				<p>created at: <span><?= date('F j, Y g:i A', strtotime($fetch_users['created_at'])) ?></span></p>
     				<a href="transaction_logs.php?id=<?= $user_id ?>" class="btn">View Transaction Logs</a>
+					<a href="user_logs.php?id=<?= $user_id ?>" class="btn">Authentication Logs</a>
 				</div>
 				<?php 
 						}

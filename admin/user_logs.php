@@ -7,7 +7,13 @@ if(isset($_COOKIE['seller_id'])){
     $seller_id = '';          
     header('location:login.php');          
     exit();  
-}    
+}
+
+$user_id = isset($_GET['id']) ? $_GET['id'] : '';
+
+if (empty($user_id)) {
+    header('location:dashboard.php');
+}
 
 error_reporting(E_ALL); 
 ini_set('display_errors', 1);  
@@ -15,19 +21,21 @@ ini_set('display_errors', 1);
 try {     
     // Fetch logs with user names by joining user_logs with users table
     $query = "SELECT 
-                ul.id, 
-                ul.user_id, 
-                u.name AS user_name, 
-                ul.action, 
-                ul.timestamp 
-              FROM user_logs ul
-              LEFT JOIN users u ON ul.user_id = u.id
-              ORDER BY ul.timestamp DESC";
-    
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    
-    $logs = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    ul.id, 
+    ul.user_id, 
+    u.name AS user_name, 
+    ul.action, 
+    ul.timestamp 
+  FROM user_logs ul
+  LEFT JOIN users u ON ul.user_id = u.id
+  WHERE ul.user_id = :user_id
+  ORDER BY ul.timestamp DESC";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$stmt->execute();
+
+$logs = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 } catch(PDOException $e) {     
     error_log($e->getMessage());     
     die("Error fetching logs: " . $e->getMessage()); 
@@ -38,7 +46,8 @@ try {
 <html lang="en"> 
 <head>     
     <meta charset="UTF-8">     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>     
     <title>User Logs</title>     
     <style>         
         <?php include '../css/admin_style.css'; ?>         
@@ -99,6 +108,8 @@ try {
         <?php endif; ?>     
     </section> 
 </div>  
+
+
 
 <script type="text/javascript" src="script.js"></script> 
 </body> 

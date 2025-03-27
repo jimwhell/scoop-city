@@ -48,9 +48,9 @@ if(isset($_POST['submit'])){
       <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
       <p>your password <span>*</span></p>
       <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
-      <p class="link">don't have an account? <a href="register.php" class="underline">register new</a></p>
       <input type="submit" name="submit" value="login now" class="btn">
       <p class="link"><a href="../login.php" class="underline">Login as user </a></p>
+      <p class="link"><a href="../home.php" class="underline">Return to home</a></p>
    </form>
 
 </div>

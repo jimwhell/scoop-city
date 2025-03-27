@@ -2,5 +2,5 @@
 	include 'connect.php';
 
 	setcookie('seller_id', '', time() - 1, '/');
-	header('location:../admin pannel/login.php');
+	header('location:../admin/login.php');
 ?>

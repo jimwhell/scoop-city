@@ -10,7 +10,7 @@
     $user_id = isset($_GET['id']) ? $_GET['id'] : '';
 
 	if(empty($user_id)){
-		header('location:users.php'); // Redirect if no user ID is provided 
+		header('location:dashboard.php');
 		exit();
 	}
 ?>
