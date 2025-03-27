@@ -51,6 +51,7 @@ $select_analytics->execute($filter_params);
     <title>Admin - Analytics Dashboard</title>
     <style>
         <?php include '../css/admin_style.css'; ?>
+
         .filter-container {
             display: flex;
             justify-content: space-between;
