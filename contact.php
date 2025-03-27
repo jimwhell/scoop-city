@@ -1,6 +1,6 @@
 <?php 
 	include 'components/connect.php';
-	include 'log_analytics.php';
+	include './components/log_analytics.php';
 
 	
 

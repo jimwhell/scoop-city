@@ -9,7 +9,6 @@ if(isset($_COOKIE['seller_id'])){
     exit();  
 }    
 
-// Debugging: Add error reporting 
 error_reporting(E_ALL); 
 ini_set('display_errors', 1);  
 
@@ -89,7 +88,7 @@ try {
                             <td class="<?= $log['action'] == 'login' ? 'login-action' : 'logout-action'; ?>">                                 
                                 <?= ucfirst(htmlspecialchars($log['action'])); ?>                             
                             </td>                             
-                            <td><?= htmlspecialchars($log['timestamp']); ?></td>                         
+                            <td><?= date("F, j, Y, g:i A", strtotime(($log['timestamp']))); ?></td>                         
                         </tr>                         
                         <?php endforeach; ?>                     
                     </tbody>                 
