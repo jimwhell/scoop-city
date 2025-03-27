@@ -96,6 +96,12 @@ $select_analytics->execute($filter_params);
         .heading {
             margin-bottom: 2rem;
         }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -187,6 +193,9 @@ $select_analytics->execute($filter_params);
 
                 <!-- Visualization Containers -->
                 <div class="chart-container">
+                    <h3>Most Visited Pages by Registered Users</h3>
+                    <canvas id="pagesChart"></canvas>
+
                     <h3>Device Type Distribution</h3>
                     <canvas id="deviceChart"></canvas>
                     
@@ -197,10 +206,8 @@ $select_analytics->execute($filter_params);
         </section>
     </div>
 
-    <script>
-        // Device Type Chart
+    <script> //query for device
         <?php
-        // Aggregate device type data
         $device_query = $conn->prepare("SELECT device_type, COUNT(*) as count FROM `analytics` GROUP BY device_type");
         $device_query->execute();
         $device_data = $device_query->fetchAll(PDO::FETCH_ASSOC);
@@ -217,9 +224,7 @@ $select_analytics->execute($filter_params);
             }
         });
 
-        // Browser Usage Chart
-        <?php
-        // Aggregate browser data
+        <?php //query for browser
         $browser_query = $conn->prepare("SELECT browser, COUNT(*) as count FROM `analytics` GROUP BY browser");
         $browser_query->execute();
         $browser_data = $browser_query->fetchAll(PDO::FETCH_ASSOC);
@@ -233,6 +238,72 @@ $select_analytics->execute($filter_params);
                     data: [<?php echo implode(',', array_map(function($row) { return $row['count']; }, $browser_data)); ?>],
                     backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
                 }]
+            }
+        });
+
+        <?php  //query for page visits by users from transaction_logs table
+        $pages_query = $conn->prepare("
+            SELECT 
+                page_visited, 
+                COUNT(*) as visit_count 
+            FROM `transaction_logs` 
+            GROUP BY page_visited 
+            ORDER BY visit_count DESC 
+            LIMIT 5
+        ");
+        $pages_query->execute();
+        $pages_data = $pages_query->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+        var pagesCtx = document.getElementById('pagesChart').getContext('2d');
+        var pagesChart = new Chart(pagesCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php 
+                    echo implode(',', array_map(function($row) { 
+                        $pageName = basename($row['page_visited'], '.php');
+                        return '"' . htmlspecialchars($pageName) . '"'; 
+                    }, $pages_data)); 
+                    ?>
+                ],
+                datasets: [{
+                    label: 'Page Visits',
+                    data: [
+                        <?php 
+                        echo implode(',', array_map(function($row) { 
+                            return $row['visit_count']; 
+                        }, $pages_data)); 
+                        ?>
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Most Visited Pages'
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Visits'
+                        }
+                    }
+                }
             }
         });
     </script>
