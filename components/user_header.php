@@ -11,10 +11,8 @@
          <a href="order.php"><span>order</span></a>
          <a href="contact.php"><span>contact us</span></a>
       </nav>
-      <form action="search_product.php" method="post" class="search-form">
-         <input type="text" name="search_product" placeholder="search product..." required maxlength="100">
-         <button type="submit" class="bx bx-search-alt-2" name="search_product_btn"></button>
-      </form>
+      
+     
 
       <div class="icons">
          <div id="menu-btn" class="bx bx-list-plus"></div>
