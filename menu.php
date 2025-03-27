@@ -30,10 +30,65 @@
    <link rel="stylesheet" href="css/user_style.css">
 	<title>Scoop City - Shop</title>
 	<link rel="icon" type="image/x-icon" href="image/favicon.png">
+	<style>
+
+.shop-search .search-form {
+  width: 30rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--pink-opacity);
+}
+
+
+.shop-search .search-form input {
+  width: 100%;
+  background: none;
+  font-size: 1.1rem;
+  box-shadow: none;
+}
+
+.shop-search .search-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+
+.shop-search .search-form button {
+  font-size: 1.1rem;
+  color: var(--main-color);
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+}
+
+.shop-search .search-form {
+  width: 30rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--pink-opacity);
+}
+
+.shop-search .search-form input::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.shop-search .search-form button:hover {
+  color: var(--main-color);
+}
+
+	</style>
 </head>
 <body>
 	<?php include 'components/user_header.php'; ?>
 	
+
+
 	<div class="banner-shop">
         <div class="detail">
             <h1>SHOP</h1>
@@ -42,7 +97,17 @@
             <span><a href="home.html">home</a><i class='bx bx-right-arrow-alt'></i>our menu</span> -->
         </div>
     </div>
-	<section class="products">
+
+
+	<div class="shop-search">
+		<form action="search_product.php" method="post" class="search-form">
+         	<input type="text" name="search_product" placeholder="search product..." required maxlength="100">
+         <button type="submit" class="bx bx-search-alt-2" name="search_product_btn"></button>
+    </form>
+	</div>
+	
+
+	<section class="products">	
 		<div class="box-container">
 		<?php 
 			$select_products = $conn->prepare("SELECT * FROM `products` WHERE status = ?");

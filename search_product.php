@@ -29,6 +29,59 @@ require_once './components/log_transaction.php';
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/user_style.css">
 
+    <style>
+
+.shop-search .search-form {
+  width: 30rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--pink-opacity);
+}
+
+
+.shop-search .search-form input {
+  width: 100%;
+  background: none;
+  font-size: 1.1rem;
+  box-shadow: none;
+}
+
+.shop-search .search-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+
+.shop-search .search-form button {
+  font-size: 1.1rem;
+  color: var(--main-color);
+  cursor: pointer;
+  background: none;
+  box-shadow: none;
+}
+
+.shop-search .search-form {
+  width: 30rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--pink-opacity);
+}
+
+.shop-search .search-form input::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.shop-search .search-form button:hover {
+  color: var(--main-color);
+}
+
+	</style>
 </head>
 <body>
 
@@ -45,6 +98,13 @@ require_once './components/log_transaction.php';
     </div> -->
 
 <section class="products">
+
+<div class="shop-search">
+		<form action="search_product.php" method="post" class="search-form">
+         	<input type="text" name="search_product" placeholder="search product..." required maxlength="100">
+         <button type="submit" class="bx bx-search-alt-2" name="search_product_btn"></button>
+    </form>
+	</div>
 
    <div class="heading" >
           <h1>search result</h1>

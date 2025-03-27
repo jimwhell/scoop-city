@@ -792,7 +792,7 @@ a .buttonAll {
   align-items: center;
   justify-content: space-between;
 }
-.header .flex .search-form {
+.shop-search .search-form {
   width: 30rem;
   border-radius: 0.5rem;
   display: flex;
@@ -802,19 +802,19 @@ a .buttonAll {
   background-color: var(--pink-opacity);
 }
 
-.header .flex .search-form input {
+.shop-search .search-form input {
   width: 100%;
   background: none;
   font-size: 1.1rem;
   box-shadow: none;
 }
 
-.search-form input::placeholder {
+.shop-search .search-form input::placeholder {
   color: white;
   opacity: 1; /* Firefox */
 }
 
-.header .flex .search-form button {
+.shop-search .search-form button {
   font-size: 1.1rem;
   color: var(--main-color);
   cursor: pointer;
@@ -822,7 +822,7 @@ a .buttonAll {
   box-shadow: none;
 }
 
-.header .flex .search-form button:hover {
+.shop-search .search-form button:hover {
   color: var(--main-color);
 }
 
@@ -2730,7 +2730,7 @@ footer .bottom p {
   }
   /* ----login and reg end---- */
 
-  .header .flex .search-form {
+  .shop-search .search-form {
     position: absolute;
     top: 99%;
     left: 0;
@@ -2743,7 +2743,7 @@ footer .bottom p {
     transition: 0.2s linear;
   }
 
-  .header .flex .search-form.active {
+  .shop-search .search-form.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
   .header .navbar {
