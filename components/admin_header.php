@@ -44,9 +44,10 @@
 			<ul>
 				<li><a href="dashboard.php"><i class="bx bxs-home-smile"></i>dashboard</a></li>
 				<li><a href="user_logs.php"><i class="bx bxs-user-detail"></i>user logs</a></li>
+				<li><a href="user_accounts.php"><i class="bx bxs-user-detail"></i>user transaction logs</a></li>
 				<li><a href="add_product.php"><i class="bx bxs-shopping-bags"></i>add products</a></li>
 				<li><a href="view_posts.php"><i class="bx bxs-food-menu"></i>view products</a></li>
-				<li><a href="user_accounts.php"><i class="bx bxs-user-detail"></i>accounts</a></li>
+				
 				<li><a href="../components/admin_logout.php" onclick="return confirm('logout from this website')"><i class="bx bx-log-out"></i>logout</a></li>
 			</ul>
 		</div>

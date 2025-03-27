@@ -13,13 +13,13 @@ $filter_conditions = [];
 $filter_params = [];
 
 if(isset($_GET['browser']) && !empty($_GET['browser'])) {
-    $filter_conditions[] = "browser = ?";
-    $filter_params[] = $_GET['browser'];
+    $filter_conditions[] = "browser LIKE ?";
+    $filter_params[] = $_GET['browser'] . '%';
 }
 
 if(isset($_GET['operating_system']) && !empty($_GET['operating_system'])) {
-    $filter_conditions[] = "operating_system = ?";
-    $filter_params[] = $_GET['operating_system'];
+    $filter_conditions[] = "operating_system LIKE ?";
+    $filter_params[] = $_GET['operating_system'] . '%';
 }
 
 if(isset($_GET['device_type']) && !empty($_GET['device_type'])) {
@@ -104,7 +104,7 @@ $select_analytics->execute($filter_params);
         
         <section class="analytics">
             <div class="heading">
-                <h1>Site Analytics</h1>
+                <h1>Site Visitors Analytics</h1>
                 <img src="../image/separator-img.png" width="100">
             </div>
 
@@ -115,6 +115,7 @@ $select_analytics->execute($filter_params);
                     <option value="Chrome">Chrome</option>
                     <option value="Firefox">Firefox</option>
                     <option value="Safari">Safari</option>
+                    <option value="Opera">Opera</option>
                 </select>
 
                 <select name="operating_system">

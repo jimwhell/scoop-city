@@ -89,7 +89,7 @@
 					<td><?= $log['action']; ?></td>
 					<td><?= $log['page_visited']; ?></td>
 					<td><?= $log['details']; ?></td>
-					<td><?= $log['timestamp']; ?></td>
+					<td><?= date('F, j, Y g:i A', strtotime($log['timestamp']))  ?></td>
 				</tr>
 				<?php 
 						}
