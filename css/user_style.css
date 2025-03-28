@@ -776,7 +776,7 @@ a .buttonAll {
 /*----------header--------------*/
 .header {
   padding: 0.5rem 4%;
-  background-color: var(--bg-color);
+  background-color: #5f021f;
   box-shadow: var(--box-shadow);
   position: sticky;
   top: 0;
@@ -905,7 +905,7 @@ a .buttonAll {
   margin: 0.5rem 0;
 }
 .header .navbar a {
-  color: var(--color-primary);
+  color: white;
   font-size: 1.3rem;
   margin: 0 0.5rem;
   text-transform: capitalize;
@@ -917,6 +917,7 @@ a .buttonAll {
   transition: 0.2s;
   transition-timing-function: ease;
 }
+
 /*----------home section--------------------*/
 .slider-container {
   position: relative;
